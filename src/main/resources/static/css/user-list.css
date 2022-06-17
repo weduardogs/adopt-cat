@@ -1,0 +1,68 @@
+#container-table {
+    width: 80%;
+}
+
+@media (max-width: 1200px) {
+    #container-table {
+        width: 90%;
+    }
+    table {
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr:nth-of-type(2n) {
+        background-color: white;
+    }
+
+    tr td {
+        font-size: larger;
+    }
+
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    a#\#btn-edit.btn.btn-primary.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: large;
+    }
+
+    a#\#btn-delete.btn.btn-danger.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: large;
+    }
+
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+
+    }
+}
+
+@media (max-width: 768px) {
+    #container-table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    #create-user {
+        width: 100%;
+    }
+}
+
+
+

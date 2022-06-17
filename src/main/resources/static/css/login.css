@@ -1,0 +1,68 @@
+#login {
+    width: 40%;
+}
+
+.form-group {
+    margin: auto;
+    padding: 15px;
+}
+
+@media (max-width: 1200px) {
+    #login {
+        width: 70%;
+    }
+}
+
+@media (max-width: 900px) {
+    #login {
+        width: 70%;
+    }
+    #userName {
+        height: 50px;
+        font-size: medium;
+    }
+    #password {
+        height: 50px;
+        font-size: medium;
+    }
+    #btn-login {
+        font-size: medium;
+    }
+    #body-login {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 768px) {
+    #login {
+        width: 75%;
+    }
+    #card-login.border-primary {
+        border-color: white !important;
+    }
+    #userName {
+        height: 50px;
+        font-size: larger;
+    }
+    #password {
+        height: 50px;
+        font-size: larger;
+    }
+    #btn-login {
+        width: 200px;
+        height: 60px;
+        font-size: larger;
+    }
+    #body-login {
+        font-size: larger;
+    }
+}
+
+@media (max-width: 576px) {
+    #login {
+        width: 100%;
+    }
+}
+
+
+

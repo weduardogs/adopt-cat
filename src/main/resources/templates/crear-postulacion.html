@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body th:style="'background:url('+ @{/images/fondo.png} +');'">
+
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container py-5" id="create-apply">
+    <div class="card border-primary">
+        <div class="card-header" th:text="${titulo}"></div>
+
+        <div class="card-body">
+
+            <form th:action="@{/createApplication}" th:object="${postulacion}"  method="post" class="py-4" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <input type="text" th:field="*{nombreUsuario}"  class="form-control" placeholder="Nombre del Postulante"
+                           th:errorclass="'form-control alert-danger'" id="postulante"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreUsuario')}"
+                         th:errors="*{nombreUsuario}"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="justify-content-center col-3" style="margin-top: 8px">
+                            <label>Edad: </label>
+                        </div>
+
+                        <input type="number" th:field="*{edad}" class="form-control col-3" placeholder="Edad del postulante"
+                               th:errorclass="'form-control alert-danger'"  id="edad"/>
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('edad')}"
+                             th:errors="*{edad}"></div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="email" th:field="*{usuarioEmail}" class="form-control" placeholder="Email"
+                           th:errorclass="'form-control alert-danger'" id="email"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreUsuario')}"
+                         th:errors="*{nombreUsuario}"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" th:field="*{motivoPostu}" class="form-control" placeholder="Motivo de Postulación"
+                           th:errorclass="'form-control alert-danger'" id="motivo"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('motivoPostu')}"
+                         th:errors="*{motivoPostu}"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">¿Has tenido un gato anteriormente?</label>
+                    <select th:field="*{tuvoGato}">
+                        <option th:value="'S'" th:text="Sí"></option>
+                        <option th:value="'N'" th:text="No"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">¿Tienes un espacio amplio para el gato?</label>
+                    <select th:field="*{tieneEspacio}">
+                        <option th:value="'S'" th:text="Sí"></option>
+                        <option th:value="'N'" th:text="No"></option>
+                    </select>
+                </div>
+
+                <div class="py-4">
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary" value="Postularse"/>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

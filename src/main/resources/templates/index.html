@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body th:style="'background:url('+ @{/images/fondo.png} +');'">
+
+    <header th:replace="layout/layout :: header"></header>
+
+    <div class="container-fluid py-5">
+
+            <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+
+                    <div th:each="gato, iter: ${gatos}" th:class="'carousel-item col-12 col-sm-6 col-md-4' + ${iter.first == true ? ' active' : ''}">
+
+                            <div class="card card-cat">
+                                <img th:src="@{'/uploads/' + ${gato.foto}}" class="card-img" th:alt="${gato.foto}">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="*{gato.nombre}"></h5>
+                                    <p class="card-text" th:text="*{gato.toString()}"></p>
+                                    <a th:href="@{/createApplication/} + ${gato.id} " th:text="'Adóptame'" class="btn btn-success">Go somewhere</a>
+                                </div>
+                            </div>
+
+                    </div>
+
+                </div>
+
+
+                <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
+    </div>
+
+    <footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+#create-user {
+    width: 40%;
+}
+
+.form-group {
+    margin: auto;
+    padding: 15px;
+}
+
+@media (max-width: 1200px) {
+    #create-user {
+        width: 70%;
+    }
+}
+
+@media (max-width: 900px) {
+    #create-user {
+        width: 70%;
+    }
+    input#name.form-control {
+        height: 50px;
+        font-size: medium;
+    }
+    input#passwordConfirm.form-control {
+        height: 50px;
+        font-size: medium;
+    }
+    input.btn.btn-primary {
+        font-size: medium;
+    }
+    div.card-header {
+        font-size: medium;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #create-user {
+        width: 75%;
+    }
+    div.card.border-primary{
+        border-color: white !important;
+    }
+    #btn-login {
+        width: 200px;
+        height: 60px;
+    }
+    input#name.form-control {
+        height: 50px;
+        font-size: larger;
+    }
+    input#passwordConfirm.form-control {
+        height: 50px;
+        font-size: larger;
+    }
+    input.btn.btn-primary {
+        width: 200px;
+        height: 60px;
+        font-size: larger;
+    }
+    div.card-header {
+        font-size: larger;
+    }
+
+}
+
+@media (max-width: 576px) {
+    #create-user {
+        width: 100%;
+    }
+}
+
+
+

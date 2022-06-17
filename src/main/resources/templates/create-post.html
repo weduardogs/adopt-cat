@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body th:style="'background:url('+ @{/images/fondo.png} +');'">
+
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container py-5" id="create-ad">
+    <div class="card border-primary">
+        <div class="card-header" th:text="${title}"></div>
+
+        <div class="card-body" id="body-create-ad">
+
+            <form th:action="@{/createPost}" th:object="${gato}"  method="post" class="py-4" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <input type="text" th:field="*{nombre}"  class="form-control" placeholder="Nombre"
+                           th:errorclass="'form-control alert-danger'"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+                         th:errors="*{nombre}"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" th:field="*{raza}"  class="form-control" placeholder="Raza"
+                           th:errorclass="'form-control alert-danger'"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('raza')}"
+                         th:errors="*{raza}"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" th:field="*{peso}" class="form-control" placeholder="Peso"
+                           th:errorclass="'form-control alert-danger'"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('peso')}"
+                         th:errors="*{peso}"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" th:field="*{edad}" class="form-control" placeholder="Edad"
+                           th:errorclass="'form-control alert-danger'"/>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('edad')}"
+                         th:errors="*{edad}"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="file" class="ccol-form-label"></label>
+                    <input type="file" name="file" class="form-control" placeholder="Foto"/>
+                </div>
+
+
+                <div class="py-4">
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary" value="Guardar"/>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

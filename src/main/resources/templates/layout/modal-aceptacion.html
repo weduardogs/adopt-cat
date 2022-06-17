@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <body>
+        <div th:fragment="modal-acepta" id="modalAcepta" class="modal fade" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <form th:action="@{/acceptAdoption}" th:object="${deliveryAppointment}"  method="post">
+
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Datos de entrega</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <input type="hidden" th:field="*{catId}" id="catId" class="form-control"/>
+
+                            <input type="hidden" th:field="*{applicationId}" id="applicationId" class="form-control"/>
+
+                            <div class="form-group">
+                                <input type="text" th:field="*{nombreUsuario}" id="nombreUsuario" readonly class="form-control" placeholder="Nombre "
+                                       th:errorclass="'form-control alert-danger'"/>
+                                <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreUsuario')}"
+                                     th:errors="*{nombreUsuario}"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" th:field="*{email}" id="emailUsuario" readonly class="form-control" placeholder="Email "
+                                       th:errorclass="'form-control alert-danger'"/>
+                                <div class="form-text text-danger" th:if="${#fields.hasErrors('email')}"
+                                     th:errors="*{email}"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" th:field="*{appointmentAddress}" required class="form-control" placeholder="Dirección de entrega ">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" th:field="*{phoneNumber}" required class="form-control" placeholder="Teléfono "/>
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Enviar cita</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </body>

@@ -1,0 +1,126 @@
+#create-apply {
+    width: 40%;
+}
+
+.form-group {
+    margin: auto;
+    padding: 15px;
+}
+
+@media (max-width: 1200px) {
+    #create-apply {
+        width: 70%;
+    }
+}
+
+@media (max-width: 900px) {
+    #create-apply {
+        width: 70%;
+    }
+
+    #postulante {
+        height: 50px;
+        font-size: medium;
+    }
+
+    #edad {
+        height: 50px;
+        width: 100px;
+        font-size: medium;
+    }
+
+    #email {
+        height: 50px;
+        font-size: medium;
+    }
+
+    #motivo {
+        height: 50px;
+        font-size: medium;
+    }
+
+    select#tuvoGato {
+        height: 40px;
+        margin-left: 30px;
+        font-size: medium !important;
+    }
+
+    select#tieneEspacio {
+        height: 40px;
+        margin-left: 30px;
+        font-size: medium !important;
+    }
+
+    input.btn.btn-primary {
+        font-size: medium;
+    }
+
+    div.card-header {
+        font-size: medium;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #create-apply {
+        width: 75%;
+    }
+
+    #postulante {
+        height: 50px;
+        font-size: larger;
+    }
+
+    #edad {
+        height: 50px;
+        font-size: larger;
+    }
+
+    #email {
+        height: 50px;
+        font-size: larger;
+    }
+
+    #motivo {
+        height: 50px;
+        font-size: larger;
+    }
+
+    label.col-form-label {
+        font-size: larger !important;
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    select#tuvoGato {
+        height: 40px;
+        margin-left: 30px;
+        font-size: larger !important;
+    }
+
+    select#tieneEspacio {
+        height: 40px;
+        margin-left: 30px;
+        font-size: larger !important;
+    }
+
+    div.card-header {
+        font-size: larger;
+    }
+
+    input.btn.btn-primary {
+        width: 200px;
+        height: 60px;
+        font-size: larger;
+    }
+}
+
+@media (max-width: 576px) {
+    #create-apply {
+        width: 100%;
+    }
+}
+
+
+

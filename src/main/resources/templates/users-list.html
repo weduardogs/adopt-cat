@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body th:style="'background:url('+ @{/images/fondo.png} +');'">
+    <header th:replace="layout/layout :: header"></header>
+
+    <div class="container py-5" id="container-table">
+
+        <div class="card bg-light">
+            <div class="card-header" th:text="'Usuarios'"></div>
+
+            <div class="card-body" id="card-body-users">
+
+                <table class="table table-striped" id="table-user">
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Details</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="user: ${users}">
+                        <td th:text="${user.get('userName')}"></td>
+                        <td th:text="${user.get('details')}"></td>
+
+                        <td><a class="btn btn-primary btn-sm" id="#btn-edit"
+                               th:href="@{/editUser/} + ${user.get('userName')}" th:text="'Editar'"></a></td>
+                        <td><a class="btn btn-danger btn-sm" id="#btn-delete"
+                               th:href="@{/deleteUser/} + ${user.get('userName')}" th:text="'Eliminar'"
+                               onclick="return confirm('¿Desea eliminar el usuario?');"></a></td>
+
+                    </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <footer class="container">
+        <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/jquery-ui.min.js}"></script>
+        <script th:src="@{/js/user-list.js}"></script>
+    </footer>
+
+</body>
+</html>

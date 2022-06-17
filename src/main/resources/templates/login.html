@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container py-5" id="login">
+    <div class="card border-primary" id="card-login">
+
+        <div class="card-body" id="body-login">
+
+            <div class="text-center">
+                <img th:src="@{/images/logo.png}" alt="Adopta Cat" style="width: 50%; height: 40%"/>
+            </div>
+
+            <form th:action="@{/login}" method="post" class="py-4">
+
+                <div class="form-group">
+                    <input type="email" name="userName" id="userName" class="form-control" placeholder="Email"
+                           autofocus required/>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña"
+                           required/>
+                </div>
+
+                <div class="py-4">
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary" id="btn-login" value="Iniciar Sesión"/>
+                    </div>
+                    <div class="text-center">
+                        <h8>
+                            <a th:href="@{/createUser}">¿Nuevo? Crear cuenta</a>
+                        </h8>
+                    </div>
+                </div>
+
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

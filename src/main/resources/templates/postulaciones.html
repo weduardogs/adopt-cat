@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body th:style="'background:url('+ @{/images/fondo.png} +');'">
+    <header th:replace="layout/layout :: header"></header>
+
+    <div class="container py-5">
+
+        <div class="card bg-light">
+            <div class="card-header" th:text="'Postulaciones'"></div>
+
+            <div class="card-body" id="card-body-apply">
+
+                <h4 class="card-title">
+                    <div id="div-title">
+                            <a class="btn btn-info" id="btn-report" th:href="@{'/applicantsReport/' + ${idCat}}"
+                               th:text="'Generar Reporte'" style="text-align: center"></a>
+                    </div>
+                </h4>
+
+                <h5 id="filter-title">Filtrar por: </h5>
+
+                <div class="row py-3" id="filters-form">
+                    <div style="padding-right: 10px">
+                        <form th:object="${constraintsSearch}" th:action="@{'/showPostulacionesByPreviousCats'}" th:method="get">
+
+                            <div style="width: 100%; height: 70px">
+                                <label>¿Ha tenido un gato?</label>
+                                <select th:field="*{selectedValue}" style="height: 40px">
+                                    <option th:each="value : ${comboValues}" th:value="${value}" th:text="${value}"></option>
+                                </select>
+                                <input type="hidden" th:field="*{gatoId}"/>
+                                <button type = "submit" style="height: 40px">Search</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div style="padding-left: 10px">
+                        <form th:object="${constraintsSearch}" th:action="@{'/showPostulacionesBySpace'}" th:method="get">
+                            <div style="width: 100%; height: 70px">
+                                <label>¿Tiene espacio?</label>
+                                <select th:field="*{selectedValue}" style="height: 40px">
+                                    <option th:each="value : ${comboValues}" th:value="${value}" th:text="${value}"></option>
+                                </select>
+                                <input type="hidden" th:field="*{gatoId}"/>
+                                <button type="submit" style="height: 40px">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="py-3">
+
+                    <table class="table table-striped" id="table-apply">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="th-details-post">Details</th>
+                            <th class="th-general-post">Nombre</th>
+                            <th class="th-general-post">Edad</th>
+                            <th class="th-general-post">Email</th>
+                            <th class="th-general-post">Motivo Postulación</th>
+                            <th class="th-general-post">Id Gato</th>
+                            <th class="th-general-post">Estado</th>
+                            <th class="th-general-post">Tuvo Gato</th>
+                            <th class="th-general-post">Tiene Espacio</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        <tr th:each="postulacion: ${postulaciones}">
+
+                                <td th:text="${postulacion.id}"></td>
+                                <td th:text="${postulacion.applicationDetails()}"  class="td-details-post"></td>
+                                <td th:text="${postulacion.nombreUsuario}" class="td-general-post"></td>
+                                <td th:text="${postulacion.edad}" class="td-general-post"></td>
+                                <td th:text="${postulacion.usuarioEmail}" class="td-general-post"></td>
+                                <td th:text="${postulacion.motivoPostu}" class="td-general-post"></td>
+                                <td th:text="${postulacion.gato.id}" class="td-general-post"></td>
+                                <td th:text="${postulacion.getEstatusDesc()}" class="td-general-post"></td>
+                                <td th:text="${postulacion.getTuvoGatoDesc()}" class="td-general-post"></td>
+                                <td th:text="${postulacion.getTieneEspDesc()}" class="td-general-post"></td>
+
+                                <td>
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            th:data-nombre="${postulacion.nombreUsuario}"
+                                            th:data-email="${postulacion.usuarioEmail}"
+                                            th:data-catId="${postulacion.gato.id}"
+                                            th:data-applyId="${postulacion.id}"
+                                       data-toggle="modal" data-target="#modalAcepta" id="btn-acepta" th:text="'Aceptar'"></button>
+                                </td>
+
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                            data-toggle="modal" data-target="#rechazar" id="btn-rechaza" th:text="'Rechazar'"
+                                            onclick="return confirm('¿Desea rechazar al postulante?');"></button>
+
+                                </td>
+
+
+                            <div th:replace="layout/modal-aceptacion :: modal-acepta"></div>
+
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="container">
+        <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/jquery-ui.min.js}"></script>
+        <script th:src="@{/js/postulaciones.js}"></script>
+        <script th:src="@{/js/custom.js}"></script>
+    </footer>
+
+</body>
+</html>

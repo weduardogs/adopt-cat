@@ -1,0 +1,175 @@
+#container-table {
+    width: 80%;
+}
+div#div-title {
+    padding: 10px;
+    justify-content: end;
+    text-align: end;
+}
+h5#filter-title {
+    text-align: end;
+    padding-right: 500px;
+}
+div#filters-form {
+    font-size: large;
+    justify-content: end;
+    padding-right: 70px;
+}
+
+tr th.th-details-post {
+    display: none;
+}
+
+tr td.td-details-post {
+    display: none;
+}
+
+
+
+@media (max-width: 1200px) {
+    #container-table {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr:nth-of-type(2n) {
+        background-color: white;
+    }
+
+    tr td {
+        font-size: larger;
+    }
+
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    button#btn-acepta.btn.btn-success.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: medium;
+    }
+
+    button#btn-rechaza.btn.btn-danger.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: medium;
+    }
+
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+    }
+
+    div#card-body-apply {
+        text-align: center;
+    }
+
+    a#btn-report.btn.btn-info.btn-sm {
+        width: 200px;
+        height: 50px;
+        font-size: large;
+        text-align: justify-all;
+    }
+
+    div#filters-form {
+        font-size: large;
+        justify-content: center;
+        padding-right: 0;
+    }
+
+    div#div-title {
+        padding: 10px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    h5#filter-title {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    div.card-header {
+        font-size: larger;
+    }
+
+    div.modal-dialog {
+        max-width: 90% !important;
+        height: 90% !important;
+    }
+
+    div.modal-content {
+        height: 100% !important;
+    }
+
+    input.form-control {
+        font-size: medium;
+    }
+
+    div.form-group {
+        justify-items: center !important;
+        text-align: center !important;
+    }
+
+    tr th#th-details {
+        font-size: larger;
+    }
+
+    tr th.th-details-post {
+        display: block;
+    }
+
+    tr td.td-details-post {
+        display: block;
+        font-size: x-large;
+    }
+
+    tr th.th-general-post {
+        display: none;
+    }
+
+    tr td.td-general-post {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    #container-table {
+        width: 100%;
+    }
+
+    tr td {
+        font-size: larger;
+    }
+
+    button#btn-acepta.btn.btn-success.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: large;
+    }
+
+    button#btn-rechaza.btn.btn-danger.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: large;
+    }
+
+}
+
+

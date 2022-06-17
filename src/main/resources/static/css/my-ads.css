@@ -1,0 +1,157 @@
+#container-table {
+    width: 80%;
+}
+
+div#div-form {
+    padding: 10px;
+    justify-content: end;
+    text-align: end;
+}
+
+h5#filter-title-cats {
+    text-align: end;
+    padding-right: 200px;
+}
+
+tr th.th-details {
+    display: none;
+}
+
+tr td.td-details {
+    display: none;
+}
+
+
+
+@media (max-width: 1200px) {
+    #container-table {
+        width: 90%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr:nth-of-type(2n) {
+        background-color: white;
+    }
+
+    tr td {
+        font-size: larger;
+    }
+
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+
+    }
+
+    div#card-body-my-ads {
+        text-align: center;
+    }
+
+    div#div-form{
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    a#btn-edit.btn.btn-primary.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: medium;
+    }
+
+    a#btn-reject.btn.btn-danger.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: medium;
+    }
+
+    a#btn-delete.btn.btn-warning.btn-sm {
+        width: 180px;
+        height: 40px;
+        font-size: medium;
+    }
+
+    h5#filter-title-cats {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    tr th.th-details {
+        font-size: larger;
+    }
+
+    tr th.th-details {
+        display: block;
+    }
+
+    tr td.td-details {
+        display: block;
+        font-size: x-large;
+    }
+
+    tr th.th-general {
+        display: none;
+    }
+
+    tr td.td-general {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #container-table {
+        width: 100%;
+    }
+
+    tr td {
+        font-size: larger;
+    }
+
+    a#btn-edit.btn.btn-primary.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: large;
+    }
+
+    a#btn-reject.btn.btn-danger.btn-sm {
+        width: 100px;
+        height: 40px;
+        font-size: large;
+    }
+
+    a#btn-delete.btn.btn-warning.btn-sm {
+        width: 180px;
+        height: 40px;
+        font-size: large;
+    }
+
+}
+
+@media (max-width: 576px) {
+    #create-user {
+        width: 100%;
+    }
+}
+
+
+
